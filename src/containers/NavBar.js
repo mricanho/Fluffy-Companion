@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../stylesheets/index.css';
 
 const NavBar = () => (
   <nav className="navbar" role="navigation" aria-label="main navigation">
