@@ -12,17 +12,20 @@ import NavBar from './containers/NavBar';
 import Footer from './components/Footer';
 import Home from './containers/Home';
 import About from './components/About';
+import rootReducer from './reducers';
 
+const store = createStore(rootReducer, applyMiddleware(thunk));
 ReactDOM.render(
-  <Router>
-    <NavBar />
-    <main className="d-flex">
+  <Provider store={store}>
+    <Router>
+      <NavBar />
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/about" component={About} />
       </Switch>
-    </main>
-    <Footer />
-  </Router>,
+      <Footer />
+    </Router>
+    ,
+  </Provider>,
   document.getElementById('root'),
 );
