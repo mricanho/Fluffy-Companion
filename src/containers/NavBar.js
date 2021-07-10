@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 const NavBar = () => (
   <nav className="navbar" role="navigation" aria-label="main navigation">
     <div className="navbar-brand">
-      <a className="navbar-item" href="https://bulma.io">
-        <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28" alt="Logo" />
+      <a className="navbar-item" href="/">
+        <p className="title is-size-5 has-text-weight-bold has-text-black-bis">Fluffy Companion</p>
       </a>
       <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" href="/">
         <span aria-hidden="true" />
