@@ -16,11 +16,11 @@ export const fetchDetailFailure = (error) => ({ type: FETCH_DETAIL_FAILURE, erro
 export const setFilter = (filter) => ({ type: SET_FILTER, filter });
 export const setPage = (page) => ({ type: SET_PAGE, page });
 
-export const asyncFetchImages = (filter, page) => (
+export const asyncFetchimages = (filter, page) => (
   async (dispatch) => {
     dispatch(fetchImages());
     const searchPage = 'search/photos';
-    const criteria = `&query=${filter}&page=${page}&per_page`;
+    const criteria = `&query=${filter}&page=${page}&per_page=9`;
 
     const url = `https://api.unsplash.com/${searchPage}?client_id=${process.env.REACT_APP_UNSPLASH_API_KEY}${criteria}`;
     return fetch(`${url}`)

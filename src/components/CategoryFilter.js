@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import CATEGORIES from '../actions/categories';
 
 const Filter = ({ handleOnClick }) => (
-  <div className="dropdown-content">
+  <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
     {CATEGORIES.map((category) => (
       <Link
         to={`/category/${category.id}`}
@@ -15,7 +15,7 @@ const Filter = ({ handleOnClick }) => (
         {category.name}
       </Link>
     ))}
-  </div>
+  </ul>
 );
 
 Filter.propTypes = {

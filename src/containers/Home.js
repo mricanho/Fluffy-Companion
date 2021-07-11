@@ -3,19 +3,19 @@ import { connect } from 'react-redux';
 import '../index.css';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { asyncFetchImages, setPage } from '../actions';
+import { asyncFetchimages, setPage } from '../actions';
 import Photo from '../components/Photo';
 import Spinner from '../components/Spinner';
 
-const Home = ({ images, fetchImages, setPage }) => {
-  const [filter, setFilter] = useState('dogs-human');
+const Home = ({ images, fetchimages, setPage }) => {
+  const [filter, setFilter] = useState('images-human');
   useEffect(() => {
     if (images.page !== undefined) {
-      fetchImages(filter, images.page);
+      fetchimages(filter, images.page);
     }
     if (images.filter !== undefined) {
       setFilter(images.filter);
-      fetchImages(images.filter, images.page);
+      fetchimages(images.filter, images.page);
     }
   }, [images.filter, images.page]);
 
@@ -60,16 +60,20 @@ const Home = ({ images, fetchImages, setPage }) => {
             ))
           }
         </ul>
+        {
+          loading ? (<Spinner />)
+            : ''
+        }
         <div className="d-flex flex-wrap">
-          {list.map((image) => (
+          {list.map((dog) => (
             <Link
-              key={image.id}
+              key={dog.id}
               to={
-                `/photos/${image.id}`
+                `/photos/${dog.id}`
               }
               className="col-12 col-md-4 p-2 mb-2"
             >
-              <Photo photoContainer="photo-container" photoStyle="photo" key={image.id} id={image.id} url={image.urls.small} />
+              <Photo photoContainer="photo-container" photoStyle="photo" key={dog.id} id={dog.id} url={dog.urls.small} />
             </Link>
           ))}
         </div>
@@ -77,11 +81,6 @@ const Home = ({ images, fetchImages, setPage }) => {
     </>
   );
 };
-
-const mapDispatchToProps = (dispatch) => ({
-  fetchImages: (filter, page) => dispatch(asyncFetchImages(filter, page)),
-  setPage: (page) => dispatch(setPage(page)),
-});
 
 Home.propTypes = {
   images: PropTypes.shape({
@@ -95,8 +94,17 @@ Home.propTypes = {
       [PropTypes.string, PropTypes.number],
     ),
   }).isRequired,
-  fetchImages: PropTypes.func.isRequired,
+  fetchimages: PropTypes.func.isRequired,
   setPage: PropTypes.func.isRequired,
 };
 
-export default connect(null, mapDispatchToProps)(Home);
+const mapStateToProps = (state) => ({
+  images: state,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  fetchimages: (filter, page) => dispatch(asyncFetchimages(filter, page)),
+  setPage: (page) => dispatch(setPage(page)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
