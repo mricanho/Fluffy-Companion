@@ -1,9 +1,9 @@
 .hero {
-  height: 79vh;
+  min-height: 79vh;
 }
 
 .hero-body {
-  padding: 2rem 1.5rem !important;
+  padding: 3rem 0rem !important;
 }
 
 .footer {

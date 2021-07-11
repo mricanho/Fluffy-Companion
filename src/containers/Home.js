@@ -24,7 +24,7 @@ const Home = ({ images, fetchimages, setPage }) => {
     loading,
   } = images;
 
-  const pagination = [1, 2, 3, 4, 5];
+  const pagination = [1, 2, 3, 4, 5, 6];
 
   return (
     <>
@@ -33,50 +33,53 @@ const Home = ({ images, fetchimages, setPage }) => {
           : ''
       }
       <section className="hero is-large is-info">
-        <div className="hero-body">
+        <div className="container">
+          <div className="hero-body">
 
-          <p className="title">
-            Home Page
-          </p>
-          <p className="subtitle">
-            Some content here
-          </p>
-        </div>
-        <ul className="d-flex list-unstyled">
-          {
-            pagination.map((page) => (
-              <li key={page}>
+            <p className="title mb-6 has-text-centered">
+              Choose Your Fluffy Companion
+            </p>
+            <div className="columns">
+              {list.map((image) => (
                 <Link
-                  to="/"
-                  className="btn bg-green m-2"
-                  onClick={
-                    () => setPage(page)
+                  key={image.id}
+                  to={
+                    `/photos/${image.id}`
                   }
-                  alt={`Page ${page}`}
+                  className="column is-one-third"
                 >
-                  {page}
+                  <Photo photoContainer="photo-container" photoStyle="photo" key={image.id} id={image.id} url={image.urls.small} />
                 </Link>
-              </li>
-            ))
-          }
-        </ul>
+              ))}
+            </div>
+          </div>
+        </div>
+        <nav className="pagination is-rounded">
+          <ul className="pagination-list">
+            {
+              pagination.map((page) => (
+                <li key={page}>
+                  <Link
+                    to="/"
+                    className="pagination-link"
+                    aria-label="Goto page 1"
+                    onClick={
+                      () => setPage(page)
+                    }
+                    alt={`Page ${page}`}
+                  >
+                    {page}
+                  </Link>
+                </li>
+              ))
+            }
+          </ul>
+
+        </nav>
         {
           loading ? (<Spinner />)
             : ''
         }
-        <div className="d-flex flex-wrap">
-          {list.map((dog) => (
-            <Link
-              key={dog.id}
-              to={
-                `/photos/${dog.id}`
-              }
-              className="col-12 col-md-4 p-2 mb-2"
-            >
-              <Photo photoContainer="photo-container" photoStyle="photo" key={dog.id} id={dog.id} url={dog.urls.small} />
-            </Link>
-          ))}
-        </div>
       </section>
     </>
   );
