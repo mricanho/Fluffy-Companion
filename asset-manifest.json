@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/Fluffy-Companion/static/css/main.2754f69a.chunk.css",
+    "main.js": "/Fluffy-Companion/static/js/main.92803d50.chunk.js",
+    "main.js.map": "/Fluffy-Companion/static/js/main.92803d50.chunk.js.map",
+    "runtime-main.js": "/Fluffy-Companion/static/js/runtime-main.3e7c4dbf.js",
+    "runtime-main.js.map": "/Fluffy-Companion/static/js/runtime-main.3e7c4dbf.js.map",
+    "static/js/2.cb7c1085.chunk.js": "/Fluffy-Companion/static/js/2.cb7c1085.chunk.js",
+    "static/js/2.cb7c1085.chunk.js.map": "/Fluffy-Companion/static/js/2.cb7c1085.chunk.js.map",
+    "index.html": "/Fluffy-Companion/index.html",
+    "static/css/main.2754f69a.chunk.css.map": "/Fluffy-Companion/static/css/main.2754f69a.chunk.css.map",
+    "static/js/2.cb7c1085.chunk.js.LICENSE.txt": "/Fluffy-Companion/static/js/2.cb7c1085.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3e7c4dbf.js",
+    "static/js/2.cb7c1085.chunk.js",
+    "static/css/main.2754f69a.chunk.css",
+    "static/js/main.92803d50.chunk.js"
+  ]
+}

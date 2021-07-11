@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/index.css"],"names":[],"mappings":"AAAA,MACE,eACF,CAEA,WACE,wBACF,CAEA,QACE,0BAA2B,CAC3B,WACF","file":"main.2754f69a.chunk.css","sourcesContent":[".hero {\r\n  min-height: 79vh;\r\n}\r\n\r\n.hero-body {\r\n  padding: 3rem 0rem !important;\r\n}\r\n\r\n.footer {\r\n  Padding: 3rem 1.5rem 4.5rem;\r\n  height: auto;\r\n}\r\n"]}
