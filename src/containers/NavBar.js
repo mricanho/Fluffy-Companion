@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setFilter } from '../actions';
 import Filter from '../components/CategoryFilter';
+import arrow from '../assets/down-arrow.png';
 
 const NavBar = ({ setFilter }) => {
   const handleClick = (filter) => {
@@ -38,7 +39,7 @@ const NavBar = ({ setFilter }) => {
                 <button className="button" aria-haspopup="true" aria-controls="dropdown-menu2" type="button">
                   <span>Categories</span>
                   <span className="icon is-small">
-                    <i className="fas fa-angle-down" aria-hidden="true" />
+                    <image src={arrow} alt="down-arrow" />
                   </span>
                 </button>
               </div>

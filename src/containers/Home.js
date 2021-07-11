@@ -8,7 +8,7 @@ import Photo from '../components/Photo';
 import Spinner from '../components/Spinner';
 
 const Home = ({ images, fetchimages, setPage }) => {
-  const [filter, setFilter] = useState('images-human');
+  const [filter, setFilter] = useState('pet');
   useEffect(() => {
     if (images.page !== undefined) {
       fetchimages(filter, images.page);
@@ -35,9 +35,11 @@ const Home = ({ images, fetchimages, setPage }) => {
       <section className="hero is-large is-info">
         <div className="container">
           <div className="hero-body">
-
-            <p className="title mb-6 has-text-centered">
+            <p className="title has-text-centered">
               Choose Your Fluffy Companion
+            </p>
+            <p className="subtitle mb-6 has-text-centered">
+              Life it&#39;s better when you share
             </p>
             <div className="columns">
               {list.map((image) => (
