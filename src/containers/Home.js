@@ -11,23 +11,31 @@ const Home = ({ setFilter }) => {
   };
 
   return (
-    <>
-      <section className="hero is-large is-info">
-        <div className="hero-body">
-          <div>
-            <div className="select">
+    <section className="hero is-large is-info">
+      <div className="hero-body">
+        <div className="dropdown is-hoverable">
+          <div className="dropdown-trigger">
+            <button className="button" aria-haspopup="true" aria-controls="dropdown-menu2" type="button">
+              <span>Categories</span>
+              <span className="icon is-small">
+                <i className="fas fa-angle-down" aria-hidden="true" />
+              </span>
+            </button>
+          </div>
+          <div className="dropdown-menu" id="dropdown-menu2" role="menu">
+            <div className="dropdown-content">
               <Filter handleOnClick={handleClick} />
             </div>
           </div>
-          <p className="title">
-            Home Page
-          </p>
-          <p className="subtitle">
-            Some content here
-          </p>
         </div>
-      </section>
-    </>
+        <p className="title">
+          Home Page
+        </p>
+        <p className="subtitle">
+          Some content here
+        </p>
+      </div>
+    </section>
   );
 };
 
@@ -48,8 +56,6 @@ Home.propTypes = {
       [PropTypes.string, PropTypes.number],
     ),
   }).isRequired,
-  fetchImages: PropTypes.func.isRequired,
-  setPage: PropTypes.func.isRequired,
 };
 
 export default connect(null, mapDispatchToProps)(Home);
