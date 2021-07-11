@@ -13,6 +13,7 @@ import Footer from './components/Footer';
 import Home from './containers/Home';
 import About from './components/About';
 import rootReducer from './reducers';
+import Detail from './containers/Detail';
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 ReactDOM.render(
@@ -22,6 +23,8 @@ ReactDOM.render(
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/about" component={About} />
+        <Route path="/category/:id" component={Home} />
+        <Route path="/photos/:imageId" component={Detail} />
       </Switch>
       <Footer />
     </Router>

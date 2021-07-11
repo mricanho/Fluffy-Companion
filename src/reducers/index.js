@@ -12,7 +12,7 @@ import {
 export const defaultState = {
   list: [],
   loading: false,
-  filter: 'mammal',
+  filter: 'dogs-human',
   page: 1,
   message: '',
   detail: '',

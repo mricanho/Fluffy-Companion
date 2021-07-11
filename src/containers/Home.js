@@ -1,50 +1,89 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import '../index.css';
 import PropTypes from 'prop-types';
-import Filter from '../components/CategoryFilter';
-import { setFilter } from '../actions';
+import { Link } from 'react-router-dom';
+import { asyncFetchImages, setPage } from '../actions';
+import Photo from '../components/Photo';
+import Spinner from '../components/Spinner';
 
-const Home = ({ setFilter }) => {
-  const handleClick = (filter) => {
-    setFilter(filter);
-  };
+const Home = ({ images, fetchImages, setPage }) => {
+  const [filter, setFilter] = useState('dogs-human');
+  useEffect(() => {
+    if (images.page !== undefined) {
+      fetchImages(filter, images.page);
+    }
+    if (images.filter !== undefined) {
+      setFilter(images.filter);
+      fetchImages(images.filter, images.page);
+    }
+  }, [images.filter, images.page]);
+
+  const {
+    list,
+    loading,
+  } = images;
+
+  const pagination = [1, 2, 3, 4, 5];
 
   return (
-    <section className="hero is-large is-info">
-      <div className="hero-body">
-        <div className="dropdown is-hoverable">
-          <div className="dropdown-trigger">
-            <button className="button" aria-haspopup="true" aria-controls="dropdown-menu2" type="button">
-              <span>Categories</span>
-              <span className="icon is-small">
-                <i className="fas fa-angle-down" aria-hidden="true" />
-              </span>
-            </button>
-          </div>
-          <div className="dropdown-menu" id="dropdown-menu2" role="menu">
-            <div className="dropdown-content">
-              <Filter handleOnClick={handleClick} />
-            </div>
-          </div>
+    <>
+      {
+        loading ? (<Spinner />)
+          : ''
+      }
+      <section className="hero is-large is-info">
+        <div className="hero-body">
+
+          <p className="title">
+            Home Page
+          </p>
+          <p className="subtitle">
+            Some content here
+          </p>
         </div>
-        <p className="title">
-          Home Page
-        </p>
-        <p className="subtitle">
-          Some content here
-        </p>
-      </div>
-    </section>
+        <ul className="d-flex list-unstyled">
+          {
+            pagination.map((page) => (
+              <li key={page}>
+                <Link
+                  to="/"
+                  className="btn bg-green m-2"
+                  onClick={
+                    () => setPage(page)
+                  }
+                  alt={`Page ${page}`}
+                >
+                  {page}
+                </Link>
+              </li>
+            ))
+          }
+        </ul>
+        <div className="d-flex flex-wrap">
+          {list.map((image) => (
+            <Link
+              key={image.id}
+              to={
+                `/photos/${image.id}`
+              }
+              className="col-12 col-md-4 p-2 mb-2"
+            >
+              <Photo photoContainer="photo-container" photoStyle="photo" key={image.id} id={image.id} url={image.urls.small} />
+            </Link>
+          ))}
+        </div>
+      </section>
+    </>
   );
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  setFilter: (filter) => (dispatch(setFilter(filter))),
+  fetchImages: (filter, page) => dispatch(asyncFetchImages(filter, page)),
+  setPage: (page) => dispatch(setPage(page)),
 });
 
 Home.propTypes = {
-  setFilter: PropTypes.func.isRequired,
   images: PropTypes.shape({
     list: PropTypes.oneOfType([
       PropTypes.array,
@@ -56,6 +95,8 @@ Home.propTypes = {
       [PropTypes.string, PropTypes.number],
     ),
   }).isRequired,
+  fetchImages: PropTypes.func.isRequired,
+  setPage: PropTypes.func.isRequired,
 };
 
 export default connect(null, mapDispatchToProps)(Home);
