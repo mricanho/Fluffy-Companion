@@ -12,7 +12,7 @@ import {
 export const defaultState = {
   list: [],
   loading: false,
-  filter: 'dogs-human',
+  filter: 'animal',
   page: 1,
   message: '',
   detail: '',
@@ -24,7 +24,7 @@ const imagesReducer = (state = defaultState, action) => {
       return { ...state, loading: true };
     case FETCH_IMAGES_SUCCESS:
       return {
-        list: action.mammal.results,
+        list: action.images.results,
         loading: false,
         filter: action.filter,
       };
@@ -35,7 +35,7 @@ const imagesReducer = (state = defaultState, action) => {
     case FETCH_DETAIL_SUCCESS:
       return {
         ...state,
-        detail: action.mammal.results,
+        detail: action.image.results,
         loading: false,
       };
     case FETCH_DETAIL_FAILURE:
