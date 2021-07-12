@@ -1,4 +1,4 @@
-# React Calculator
+# Fluffy Companion
 
 Fluffy Companion it's a website based on the #Catalogye of Dog Clothes#, it's an application to search for the best pet ever, you can select from a catalogue and see beforehand which kind of animals are out there...
 
