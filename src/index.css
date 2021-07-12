@@ -3,10 +3,10 @@
 }
 
 .hero-body {
-  padding: 3rem 0rem !important;
+  padding: 3rem 0 !important;
 }
 
 .footer {
-  Padding: 3rem 1.5rem 4.5rem;
+  padding: 3rem 1.5rem 4.5rem;
   height: auto;
 }
