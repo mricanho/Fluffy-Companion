@@ -41,7 +41,7 @@ const Home = ({ images, fetchimages, setPage }) => {
             <p className="subtitle mb-6 has-text-centered">
               Life it&#39;s better when you share
             </p>
-            <div className="columns">
+            <div className="columns is-vcentered">
               {list.map((image) => (
                 <Link
                   key={image.id}

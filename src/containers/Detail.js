@@ -37,16 +37,20 @@ const Detail = ({ images, fetchDetail }) => {
         )
           : ''
       }
-      <div className="columns">
-        <div className="column is-half">
-          <Photo id={imageId} url={urls.small} photoContainer="photo-detail-container" photoStyle="photo-detail" />
-        </div>
-        <div className="column is-half">
-          <div><h4 className="is-size-1">{description}</h4></div>
-          <div>{alt}</div>
-          <div className="is-size-5">
-            <span>Photo by: </span>
-            <span>{author.name}</span>
+      <div className="container">
+        <div className="columns mt-1 is-vcentered">
+          <div className="column is-half py-6">
+            <Photo id={imageId} url={urls.small} photoContainer="photo-detail-container" photoStyle="photo-detail" />
+          </div>
+          <div className="column is-half">
+            <div>
+              <h4 className="is-size-2">{description}</h4>
+            </div>
+            <div className="is-size-4 mt-6">{alt}</div>
+            <div className="is-size-5 mt-2">
+              <span>Photo by: </span>
+              <span>{author.name}</span>
+            </div>
           </div>
         </div>
       </div>
