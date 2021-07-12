@@ -4,8 +4,7 @@ Fluffy Companion it's a website based on the #Catalogye of Dog Clothes#, it's an
 
 This application uses the Unsplash API to consume the images and information, Bulma for the styling, React as the front-end framework, and Redux to manage the changes on the state tree.
 
-![image](https://user-images.githubusercontent.com/60631456/125350895-08734800-e325-11eb-9e61-1b9949a66ec4.png)
-
+![image](https://user-images.githubusercontent.com/60631456/125351042-335d9c00-e325-11eb-8861-91666569ab58.png)
 
 ## Live demo
 
